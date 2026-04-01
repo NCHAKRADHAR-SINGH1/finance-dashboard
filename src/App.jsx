@@ -411,27 +411,37 @@ function App() {
   return (
     <div className="page">
       <header className="topbar">
-        <div>
-          <h1>Finance Dashboard</h1>
-          <p className="sub">Track balance, transactions and spending patterns · Updated {lastUpdatedLabel}</p>
+        <div className="topbar-titlebar">
+          <span className="topbar-title-text">📊 Finance Dashboard</span>
+          <div className="topbar-winctrls">
+            <button className="win-ctrl" aria-label="minimize">_</button>
+            <button className="win-ctrl" aria-label="maximize">□</button>
+            <button className="win-ctrl win-close" aria-label="close">✕</button>
+          </div>
         </div>
+        <div className="topbar-body">
+          <div>
+            <h1>Finance Dashboard</h1>
+            <p className="sub">Track balance, transactions and spending patterns · Updated {lastUpdatedLabel}</p>
+          </div>
 
-        <div className="header-controls">
-          <label className="role-switch">
-            Role
-            <select value={role} onChange={(e) => setRole(e.target.value)}>
-              <option value="viewer">Viewer</option>
-              <option value="admin">Admin</option>
-            </select>
-          </label>
+          <div className="header-controls">
+            <label className="role-switch">
+              Role
+              <select value={role} onChange={(e) => setRole(e.target.value)}>
+                <option value="viewer">Viewer</option>
+                <option value="admin">Admin</option>
+              </select>
+            </label>
 
-          <button className="ghost" onClick={() => setTheme((p) => (p === "light" ? "dark" : "light"))}>
-            {theme === "light" ? "Dark mode" : "Light mode"}
-          </button>
+            <button className="ghost" onClick={() => setTheme((p) => (p === "light" ? "dark" : "light"))}>
+              {theme === "light" ? "Dark mode" : "Light mode"}
+            </button>
 
-          <button className="ghost" onClick={loadMockApiData} disabled={loadingMock}>
-            {loadingMock ? "Loading mock API..." : "Load mock API data"}
-          </button>
+            <button className="ghost" onClick={loadMockApiData} disabled={loadingMock}>
+              {loadingMock ? "Loading mock API..." : "Load mock API data"}
+            </button>
+          </div>
         </div>
       </header>
 
